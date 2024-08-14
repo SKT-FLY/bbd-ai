@@ -162,6 +162,7 @@ cython_debug/
 #.idea/
 
 # Datasets
+dataset/
 dataset_jjd/
 dataset_ksd/
 dataset_jld/
@@ -169,6 +170,7 @@ dataset_ccd/
 dataset_kwd/
 
 # Dialects
+dialect/
 dialect_jjd/
 dialect_ksd/
 dialect_jld/
