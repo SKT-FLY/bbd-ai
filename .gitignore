@@ -164,6 +164,14 @@ cython_debug/
 # Datasets
 dataset_jjd/
 dataset_ksd/
+dataset_jld/
+dataset_ccd/
+dataset_kwd/
+
+# Dialects
+dialect_jjd/
 dialect_ksd/
-dialect_jjd
+dialect_jld/
+dialect_ccd/
+dialect_kwd/
 
