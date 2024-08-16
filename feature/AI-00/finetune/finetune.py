@@ -59,10 +59,10 @@ def main(folders, output_file):
 
 if __name__ == "__main__":
     folders = [
-        r"feature\AI-00\dialect\dialect_jld\VL_02_A",
-        r"feature\AI-00\dialect\dialect_jld\VL_02_F",
+        r"feature\AI-00\dialect\dialect_jjd\VL_03_A",
+        r"feature\AI-00\dialect\dialect_jjd\VL_03_F",
     ]  # JSON 파일이 위치한 폴더 경로들
-    output_file = r"C:\Users\SKT005\bbd-ai\feature\AI-00\dataset\dataset_jld\jld-validate.jsonl"
+    output_file = r"C:\Users\SKT005\bbd-ai\feature\AI-00\dataset\dataset_jjd\jjd-validate.jsonl"
     
     # 결과를 저장할 JSONL 파일
     main(folders, output_file)
