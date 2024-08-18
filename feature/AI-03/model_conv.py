@@ -66,7 +66,7 @@ class TaskProcessor:
 
             if not std_command:
                 return None, "표준화 실패"
-            
+            #few-shot
             messages = self.messages + [
                 {"role": "system", "content": "Q. 다음 중 고객이 원하는 것은? 만약 병원 관련된 답을 선택할 경우, 고객이 어디가 아픈지 확실하지 않다면 7번을 선택할 것."},
                 {"role": "user", "content": "내가 비염이 있는 거 같은데"},
