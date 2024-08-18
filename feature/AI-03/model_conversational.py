@@ -12,8 +12,8 @@ load_dotenv()
 # 환경 변수로 API 키 및 모델 설정
 API_KEY_FOR_STANDARDIZATION = os.getenv("OPENAI_API_KEY_FOR_STANDARDIZATION")
 API_KEY_FOR_EXTRACT = os.getenv("OPENAI_API_KEY_FOR_EXTRACT")
-MODEL_STANDARDIZATION = os.getenv("GPT_4o_MODEL_STANDARDIZATION")  # Fine-tuning한 거
-MODEL_EXTRACT = os.getenv("MODEL_EXTRACT", "gpt-4o-mini")  # 기본 모델
+MODEL_STANDARDIZATION = os.getenv("GPT_4o_MODEL_ALL_DIALECT") #GPT_4o_MODEL_JJD_DIALECT #GPT_4o_MODEL_STANDARDIZATION
+MODEL_EXTRACT = os.getenv("MODEL_EXTRACT", "gpt-4o-mini")
 
 class TaskProcessor:
     def __init__(self):
@@ -66,9 +66,9 @@ class TaskProcessor:
 
             if not std_command:
                 return None, "표준화 실패"
-            
+            #few-shot
             messages = self.messages + [
-                {"role": "system", "content": "Q. 다음 중 고객이 원하는 것은? 만약 병원 관련된 답을 선택할 경우, 고객이 어디가 아픈지 확실하지 않다면 7번을 선택할 것."},
+                {"role": "system", "content": "Q. 다음 중 고객이 원하는 것은? 만약 병원 관련된 답을 선택할 경우, 고객이 어디가 아픈지 확실하지 않다면 7번을 선택할 것. 어딘가로 이동하고 싶은 것으로 추정된다면 8번(택시예약)이 답일 수 있음을 고려할 것."},
                 {"role": "user", "content": "내가 비염이 있는 거 같은데"},
                 {"role": "system", "content": f"{tasks_string}"},
                 {"role": "assistant", "content": "1"},
