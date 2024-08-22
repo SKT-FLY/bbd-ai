@@ -16,8 +16,8 @@ class SpamClassifier:
             "model": "gpt-4o-mini",
             "role_message": {
                 "role": "system",
-                "content": "너는 보안을 담당하고 스미싱이라는 스팸 문자 데이터들을 분류하는 역할을 할꺼야. 앞으로 너가 받는 문자 데이터들을 분석해서 스미싱 데이터인지 아닌지 판별해줘. 응답은 '예' 또는 '아니오' 형태로만 해줘."
-            }    
+                "content": "너는 보안을 담당하고 스미싱이라는 스팸 문자 데이터들을 분류하는 역할을 할꺼야. 앞으로 너가 받는 문자 데이터들을 분석해서 스미싱 데이터인지 아닌지 판별해줘."
+            }
         }
 
     def initmodel(self):
@@ -32,7 +32,7 @@ class SpamClassifier:
             print(f"OpenAI API 오류: {e}")
             return None
 
-    def is_spam(self, data: str) -> bool:
+    def is_spam(self, data: str) -> str:
         try:
             response = openai.chat.completions.create(
                 model=self.model_settings["model"],
@@ -44,8 +44,7 @@ class SpamClassifier:
             )
 
             result = response.choices[0].message.content
-            if(result == "예") : return True
-            return False
+            return result
         except openai.error.OpenAIError as e:
             print(f"OpenAI API 오류: {e}")
             return "오류 발생"
