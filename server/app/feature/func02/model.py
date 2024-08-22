@@ -6,7 +6,7 @@ import time
 
 prompt = prompt
 
-class MessageSummary:
+class MessageAnalyzer:
     def __init__(self, prompt):
         load_dotenv()
         self.api_key = os.getenv('OPENAI_API_KEY')
@@ -66,6 +66,6 @@ MMS 스팸신고[Web발신](광고)경자년 지나고 새로운 신축년이 �
 
     """
 
-    summary = MessageSummary(prompt)
+    summary = MessageAnalyzer(prompt)
     summary.initmodel()
     print(summary.get_summary(text))
