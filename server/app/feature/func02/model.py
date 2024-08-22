@@ -1,13 +1,13 @@
 import openai
 import os
 from dotenv import load_dotenv
-import prompt
 import time
+from app.feature.func02 import prompt
 
-prompt = prompt
+prompt=prompt
 
-class MessageSummary:
-    def __init__(self, prompt):
+class MessageAnalyzer:
+    def __init__(self, prompt=prompt):
         load_dotenv()
         self.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -62,15 +62,10 @@ class MessageSummary:
 # 테스트 코드
 if __name__ == "__main__":
     text = """
-[서울성모병원 진료예약 확인 알림]
-- 문*숙 님 / 등록번호: 30756112
-- 일자: 2024년09월19일(목요일)
-- 시간: 10시44분
-- 본관 2층 척추센터 정형외과  김영훈  선생님   
-문의 및 예약변경 시 1588-1511로 연락주세요.  
-카카오톡이 아닌 기존처럼 문자로 받길 원하실 경우에는 우측상단의 "알림톡 받지 않기"를 눌러주시기 바랍니다.
+MMS 스팸신고[Web발신](광고)경자년 지나고 새로운 신축년이 밝았습니다올해들어 최고의 선택은 이것 아닐까요?반갑습니다 박건희대표 입니다2021년도 새해복 많이받으세요요즘같은 힘든시기 대책방안을 마련했습니다.주부님들 사이에서 유행중인 재.테.크은행 직원들도 진행하는 목돈마련남들보다 한걸음 더 앞서는게 가장 중요합니다처음이신분들도 환영합니다.원.금보.장 재.테.크50~60대분들도 이용하는 쉽고 편리한 투 자방식상담문의hxxp://click.gl/X3y2u2무료거부 **********
+
     """
 
-    summary = MessageSummary(prompt)
+    summary = MessageAnalyzer(prompt)
     summary.initmodel()
     print(summary.get_summary(text))
