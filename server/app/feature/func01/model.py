@@ -32,7 +32,7 @@ class SpamClassifier:
             print(f"OpenAI API 오류: {e}")
             return None
 
-    def is_spam(self, data: str) -> str:
+    def is_spam(self, data: str) -> bool:
         try:
             response = openai.chat.completions.create(
                 model=self.model_settings["model"],
@@ -44,7 +44,8 @@ class SpamClassifier:
             )
 
             result = response.choices[0].message.content
-            return result
+            if(result == "예") : return True
+            return False
         except openai.error.OpenAIError as e:
             print(f"OpenAI API 오류: {e}")
             return "오류 발생"
