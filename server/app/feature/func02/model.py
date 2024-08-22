@@ -1,13 +1,13 @@
 import openai
 import os
 from dotenv import load_dotenv
-import prompt
 import time
+from app.feature.func02 import prompt
 
-prompt = prompt
+prompt=prompt
 
 class MessageAnalyzer:
-    def __init__(self, prompt):
+    def __init__(self, prompt=prompt):
         load_dotenv()
         self.api_key = os.getenv('OPENAI_API_KEY')
 
