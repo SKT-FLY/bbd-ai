@@ -1,12 +1,11 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 class MessageRequest(BaseModel):
     message: str
 
-
 class MessageRespond(BaseModel):
     source: str
-    date: str
+    date: datetime
     message_type: str
-    reason: str
     summary: str
