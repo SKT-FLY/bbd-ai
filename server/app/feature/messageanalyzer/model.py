@@ -24,18 +24,6 @@ class MessageAnalyzer:
             }
         }
 
-    def initmodel(self):
-        try:
-            response = openai.chat.completions.create(
-                model=self.model_settings["model"],
-                messages=[self.model_settings["role_message"]],
-                temperature=0
-            )
-            return response
-        except openai.error.OpenAIError as e:
-            print(f"OpenAI API 오류: {e}")
-            return None
-
     def get_summary(self, data: str) -> str:
         try:
             start_time = time.time()  # Start time
