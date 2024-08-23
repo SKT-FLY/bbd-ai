@@ -24,9 +24,9 @@ class MessageAnalyzer:
             }
         }
 
+
     def get_summary(self, data: str) -> str:
         try:
-            start_time = time.time()  # Start time
             response = openai.chat.completions.create(
                 model=self.model_settings["model"],
                 messages=[
@@ -37,11 +37,7 @@ class MessageAnalyzer:
                 max_tokens=self.max_tokens
             )
 
-            end_time = time.time()  # End time
-            elapsed_time = end_time - start_time  # Calculate elapsed time
-
             result = response.choices[0].message.content
-            print(f"Summary generation time: {elapsed_time:.2f} seconds")  # Print elapsed time
             return result
         except openai.error.OpenAIError as e:
             print(f"OpenAI API 오류: {e}")
