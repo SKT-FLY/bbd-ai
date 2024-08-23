@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from app.feature.func02.model import MessageAnalyzer
-from app.feature.func02 import prompt
+from app.feature.messageanalyzer.model import MessageAnalyzer
 from app.schemas.message import MessageRequest
 
 router = APIRouter()

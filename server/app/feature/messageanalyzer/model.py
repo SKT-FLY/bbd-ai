@@ -2,7 +2,7 @@ import openai
 import os
 from dotenv import load_dotenv
 import time
-from app.feature.func02 import prompt
+from app.feature.messageanalyzer import prompt
 
 prompt=prompt
 
