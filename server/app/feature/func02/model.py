@@ -58,14 +58,3 @@ class MessageAnalyzer:
         except openai.error.OpenAIError as e:
             print(f"OpenAI API 오류: {e}")
             return "오류 발생"
-
-# 테스트 코드
-if __name__ == "__main__":
-    text = """
-MMS 스팸신고[Web발신](광고)경자년 지나고 새로운 신축년이 밝았습니다올해들어 최고의 선택은 이것 아닐까요?반갑습니다 박건희대표 입니다2021년도 새해복 많이받으세요요즘같은 힘든시기 대책방안을 마련했습니다.주부님들 사이에서 유행중인 재.테.크은행 직원들도 진행하는 목돈마련남들보다 한걸음 더 앞서는게 가장 중요합니다처음이신분들도 환영합니다.원.금보.장 재.테.크50~60대분들도 이용하는 쉽고 편리한 투 자방식상담문의hxxp://click.gl/X3y2u2무료거부 **********
-
-    """
-
-    summary = MessageAnalyzer(prompt)
-    summary.initmodel()
-    print(summary.get_summary(text))
