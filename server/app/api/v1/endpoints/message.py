@@ -8,7 +8,6 @@ router = APIRouter()
 @router.post("/analyzed_message")  # 처리된 데이터를 문자열 리스트로 반환
 async def get_analyzed_message(request: MessageRequest):
     model = MessageAnalyzer()
-    model.initmodel()
     result = model.get_summary(request.message)
     if result is None :
         raise HTTPException(status_code=500, detail="스미싱 판별 중 오류가 발생했습니다.")
