@@ -15,7 +15,7 @@ class MessageAnalyzer:
             raise ValueError("OPENAI_API_KEY 환경 변수가 설정되지 않았습니다.")
 
         openai.api_key = self.api_key
-        self.max_tokens = 150
+        self.max_tokens = 70
         self.model_settings = {
             "model": prompt.model,
             "role_message": {
