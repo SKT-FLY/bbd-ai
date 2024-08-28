@@ -1,12 +1,11 @@
 import openai
 import os
 from dotenv import load_dotenv
-import time
-from app.feature.messageanalyzer import setting
+from app.feature.voicescheduling import setting
 
 prompt=setting
 
-class MessageAnalyzer:
+class VoiceScheduler:
     def __init__(self, prompt=prompt):
         load_dotenv()
         self.api_key = os.getenv('OPENAI_API_KEY')
@@ -25,7 +24,7 @@ class MessageAnalyzer:
         }
 
 
-    def get_summary(self, data: str) -> str:
+    def get_scheduling(self, data: str) -> str:
         try:
             response = openai.chat.completions.create(
                 model=self.model_settings["model"],
@@ -42,3 +41,9 @@ class MessageAnalyzer:
         except openai.error.OpenAIError as e:
             print(f"OpenAI API 오류: {e}")
             return "오류 발생"
+
+
+if __name__ == "__main__" : 
+    text = "나 8월 31일에 노인정에 방문해야해"
+    model = VoiceScheduler()
+    print(model.get_scheduling(text))
